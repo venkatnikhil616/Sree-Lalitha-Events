@@ -8,34 +8,41 @@
 /* Body */
 body {
   font-family: 'Noto Serif Telugu', serif;
-  background: #5c0a0a;
+  background: #3b0000;
   color: #fff;
   overflow: hidden;
 }
 
-/* Background texture */
+/* Elegant Background */
 .background {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, #7a0c0c, #3b0000);
+  background: radial-gradient(circle at center, #7a0c0c 0%, #3b0000 70%);
   z-index: -1;
 }
 
-/* Header */
+/* Header (Logo / Title) */
 .header {
   position: absolute;
-  top: 20px;
+  top: 15px;
   width: 100%;
   text-align: center;
   z-index: 10;
 }
 
+/* If using text as logo */
 .header h1 {
-  font-size: 28px;
-  color: gold;
+  font-size: 26px;
+  color: #FFD700;
   letter-spacing: 2px;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  font-weight: 600;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+}
+
+/* If you add logo image later */
+.header img {
+  height: 70px;
 }
 
 /* Carousel Section */
@@ -46,18 +53,45 @@ body {
   align-items: center;
 }
 
-/* Contact Button */
+/* Card (base look improvement before 3D) */
+.card {
+  border-radius: 15px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 215, 0, 0.6);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* Image inside card */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay for text */
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: #FFD700;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Contact Button (FIXED RIGHT SIDE) */
 .contact-btn {
   position: fixed;
   bottom: 20px;
-  left: 20px;
-  background: gold;
-  color: black;
-  font-size: 22px;
+  right: 20px;
+  background: #FFD700;
+  color: #3b0000;
+  font-size: 20px;
   padding: 14px;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 15px gold;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
   z-index: 100;
   transition: transform 0.3s ease;
 }
@@ -70,28 +104,29 @@ body {
 .contact-menu {
   position: fixed;
   bottom: 80px;
-  left: 20px;
+  right: 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+
   opacity: 0;
   pointer-events: none;
   transform: translateY(20px);
   transition: all 0.3s ease;
 }
 
-/* Active state (JS will toggle this) */
+/* Active state */
 .contact-menu.active {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
 }
 
-/* Contact items */
+/* Contact Icons */
 .contact-item {
-  background: #8b0000;
-  color: gold;
-  font-size: 20px;
+  background: #7a0c0c;
+  color: #FFD700;
+  font-size: 18px;
   padding: 12px;
   border-radius: 50%;
   text-align: center;
