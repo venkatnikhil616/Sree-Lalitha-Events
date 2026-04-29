@@ -8,17 +8,24 @@
 /* Body */
 body {
   font-family: 'Noto Serif Telugu', serif;
-  background: #3b0000;
   color: #fff;
   overflow: hidden;
 }
 
-/* Elegant Background */
+/* Premium Background Image */
 .background {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at center, #7a0c0c 0%, #3b0000 70%);
+
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+    url("images/bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   z-index: -1;
 }
 
@@ -31,18 +38,18 @@ body {
   z-index: 10;
 }
 
-/* If using text as logo */
+/* Bigger Premium Title */
 .header h1 {
-  font-size: 26px;
+  font-size: 42px;              /* increased */
   color: #FFD700;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   font-weight: 600;
-  text-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
 }
 
-/* If you add logo image later */
+/* If you add logo image */
 .header img {
-  height: 70px;
+  height: 90px;                /* increased */
 }
 
 /* Carousel Section */
@@ -53,12 +60,13 @@ body {
   align-items: center;
 }
 
-/* Card (base look improvement before 3D) */
+/* Card Styling */
 .card {
-  border-radius: 15px;
+  position: relative;
+  border-radius: 18px;
   overflow: hidden;
-  border: 2px solid rgba(255, 215, 0, 0.6);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  border: 2px solid rgba(255, 215, 0, 0.7);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.7);
 }
 
 /* Image inside card */
@@ -74,40 +82,40 @@ body {
   bottom: 0;
   width: 100%;
   padding: 15px;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
   color: #FFD700;
   font-size: 18px;
   text-align: center;
 }
 
-/* Contact Button (FIXED RIGHT SIDE) */
+/* Contact Button (BIGGER + PREMIUM) */
 .contact-btn {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 25px;
+  right: 25px;
   background: #FFD700;
   color: #3b0000;
-  font-size: 20px;
-  padding: 14px;
+  font-size: 26px;        /* increased */
+  padding: 18px;          /* increased */
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.9);
   z-index: 100;
   transition: transform 0.3s ease;
 }
 
 .contact-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 /* Contact Menu */
 .contact-menu {
   position: fixed;
-  bottom: 80px;
-  right: 20px;
+  bottom: 95px;
+  right: 25px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 
   opacity: 0;
   pointer-events: none;
@@ -126,12 +134,12 @@ body {
 .contact-item {
   background: #7a0c0c;
   color: #FFD700;
-  font-size: 18px;
-  padding: 12px;
+  font-size: 20px;
+  padding: 14px;
   border-radius: 50%;
   text-align: center;
   text-decoration: none;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
   transition: transform 0.2s ease;
 }
 
