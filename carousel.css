@@ -1,0 +1,85 @@
+/* Carousel Core */
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+}
+
+/* Each Card */
+.card {
+  position: absolute;
+  width: 220px;
+  height: 300px;
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+  transform-origin: center;
+  margin: -150px -110px; /* center alignment */
+
+  border-radius: 15px;
+  overflow: hidden;
+  border: 3px solid gold;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+
+  background: #000;
+}
+
+/* Card Image */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay Text */
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: gold;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* 3D Positions (6 Cards in Circle) */
+.card:nth-child(1) {
+  transform: rotateY(0deg) translateZ(350px);
+}
+
+.card:nth-child(2) {
+  transform: rotateY(60deg) translateZ(350px);
+}
+
+.card:nth-child(3) {
+  transform: rotateY(120deg) translateZ(350px);
+}
+
+.card:nth-child(4) {
+  transform: rotateY(180deg) translateZ(350px);
+}
+
+.card:nth-child(5) {
+  transform: rotateY(240deg) translateZ(350px);
+}
+
+.card:nth-child(6) {
+  transform: rotateY(300deg) translateZ(350px);
+}
+
+/* Hover Effect (desktop bonus) */
+.card:hover {
+  transform: scale(1.05) translateZ(350px);
+  box-shadow: 0 0 30px gold;
+}
+
+/* Smooth animation support */
+.carousel-container {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
