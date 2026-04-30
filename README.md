@@ -3,7 +3,7 @@
 A traditional-themed, mobile-friendly event services website featuring a 3D rotating carousel and interactive contact options.
 
 ---
-
+Deployment done, visit site: https://sree-lalitha-events.vercel.app
 ## ✨ Features
 
 - 🎡 **3D Card Carousel**
