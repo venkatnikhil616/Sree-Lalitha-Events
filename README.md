@@ -30,7 +30,8 @@ A traditional-themed, mobile-friendly event services website featuring a 3D rota
 ---
 
 ## 📁 Project Structure
-'''
+
+```
 Sree-Lalitha-Events/
 ├── index.html          # Main webpage structure
 ├── style.css           # Global styles (theme, layout, contact UI)
@@ -46,8 +47,7 @@ Sree-Lalitha-Events/
 │   ├── food.jpg        # Food services
 │   └── decors.jpg      # Decorations
 └── README.md           # Project documentation
-'''
-
+```
 ## 🚀 How to Run Locally
 
 ### Option 1: Python Server
