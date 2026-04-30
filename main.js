@@ -1,32 +1,29 @@
-// Toggle Contact Menu
-function toggleMenu() {
-  const menu = document.getElementById("contactMenu");
+function toggleContactMenu(e) {
+  e.stopPropagation();
 
-  if (menu.style.display === "flex") {
-    menu.style.display = "none";
-  } else {
-    menu.style.display = "flex";
-  }
+  const menu = document.getElementById("contactMenu");
+  const popup = document.getElementById("callPopup");
+
+  menu.classList.toggle("active");
+  popup.classList.remove("active");
 }
 
-// Close menu if user clicks outside
-document.addEventListener("click", function (e) {
-  const menu = document.getElementById("contactMenu");
-  const button = document.querySelector(".contact-btn");
+function openCallPopup(e) {
+  e.preventDefault();
+  e.stopPropagation();
 
-  if (!menu.contains(e.target) && !button.contains(e.target)) {
-    menu.style.display = "none";
-  }
+  const popup = document.getElementById("callPopup");
+  const menu = document.getElementById("contactMenu");
+
+  popup.classList.toggle("active");
+  menu.classList.remove("active");
+}
+
+document.querySelector(".contact-wrapper").addEventListener("click", function (e) {
+  e.stopPropagation();
 });
 
-// Optional: small entrance animation for contact button
-window.addEventListener("load", () => {
-  const btn = document.querySelector(".contact-btn");
-
-  btn.style.transform = "scale(0)";
-  
-  setTimeout(() => {
-    btn.style.transition = "transform 0.5s ease";
-    btn.style.transform = "scale(1)";
-  }, 300);
+document.addEventListener("click", function () {
+  document.getElementById("contactMenu").classList.remove("active");
+  document.getElementById("callPopup").classList.remove("active");
 });
