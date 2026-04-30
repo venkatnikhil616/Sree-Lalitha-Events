@@ -5,95 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sree Lalitha Events</title>
 
-  <!-- Google Font (Traditional Feel) -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Favicon -->
-  <link rel="icon" href="images/bridal.jpg">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="carousel.css">
 </head>
 
 <body>
 
-  <!-- Background -->
-  <div class="background"></div>
+  <!-- CONTACT -->
+  <div class="contact-wrapper">
 
-  <!-- Header -->
-  <header class="header">
+    <button class="contact-btn" onclick="toggleContactMenu(event)">
+      ☎ Contact
+    </button>
+
+    <div class="contact-menu" id="contactMenu">
+      <a href="#" onclick="openCallPopup(event)"> 📞 Call</a>
+      <a href="https://wa.me/917780223497" target="_blank">💬 WhatsApp</a>
+      <a href="https://instagram.com/YOUR_USERNAME" target="_blank">📸 Instagram</a>
+    </div>
+
+    <div class="call-popup" id="callPopup">
+      <a href="tel:9398665711">📞 9398665711</a>
+      <a href="tel:9182700508">📞 9182700508</a>
+    </div>
+
+  </div>
+
+  <!-- TITLE -->
+  <section class="hero-center">
     <h1>Sree Lalitha Events</h1>
-    <p class="tagline">Creating Magical Wedding Moments</p>
-  </header>
+  </section>
 
-  <!-- 3D Carousel Section -->
+  <!-- CAROUSEL -->
   <section class="carousel-section">
-
     <div class="carousel-container">
       <div class="carousel" id="carousel">
 
-        <!-- Card 1 -->
-        <div class="card">
-          <img src="images/bridal.jpg" alt="Bridal Makeup">
-          <div class="card-overlay">Bridal Makeup</div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="card">
-          <img src="images/groom.jpg" alt="Groom Makeup">
-          <div class="card-overlay">Groom Makeup</div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="card">
-          <img src="images/mehandi.jpg" alt="Mehendi">
-          <div class="card-overlay">Mehandi</div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="card">
-          <img src="images/stalls.jpg" alt="Stalls">
-          <div class="card-overlay">Stalls</div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="card">
-          <img src="images/food.jpg" alt="Food Stalls">
-          <div class="card-overlay">Food Stalls</div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="card">
-          <img src="images/decors.jpg" alt="Decorations">
-          <div class="card-overlay">Decorations</div>
-        </div>
+        <div class="card"><img src="images/bridal.jpg"><div class="card-overlay">Bridal</div></div>
+        <div class="card"><img src="images/groom.jpg"><div class="card-overlay">Groom</div></div>
+        <div class="card"><img src="images/mehandi.jpg"><div class="card-overlay">Mehandi</div></div>
+        <div class="card"><img src="images/stalls.jpg"><div class="card-overlay">Stalls</div></div>
+        <div class="card"><img src="images/food.jpg"><div class="card-overlay">Food</div></div>
+        <div class="card"><img src="images/decors.jpg"><div class="card-overlay">Decor</div></div>
 
       </div>
     </div>
-
   </section>
 
-  <!-- Floating Contact Button -->
-  <div class="contact-btn" onclick="toggleMenu()">
-    ☎
-  </div>
-
-  <!-- Contact Options -->
-  <div class="contact-menu" id="contactMenu">
-
-    <!-- 📞 CALL -->
-    <a href="tel:9398665711" class="contact-item">📞</a>
-
-    <!-- 💬 WHATSAPP -->
-    <a href="https://wa.me/917780223497" target="_blank" class="contact-item">💬</a>
-
-    <!-- 📸 INSTAGRAM -->
-    <a href="#" class="contact-item">📸</a>
-
-  </div>
-
-  <!-- Scripts -->
   <script src="carousel.js"></script>
   <script src="main.js"></script>
 
