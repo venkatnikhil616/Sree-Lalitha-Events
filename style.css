@@ -1,3 +1,7 @@
+/* ============================= */
+/* GLOBAL RESET */
+/* ============================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,15 +10,27 @@
 
 body {
   font-family: 'Noto Serif Telugu', serif;
-  height: 100vh;
 
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
-              url("images/bg.jpg") no-repeat center/cover;
+  /* 🔥 REMOVE height: 100vh */
+  min-height: 100vh;
+
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+              url("images/bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* 🔥 THIS FIXES SCROLL ISSUE */
+  background-attachment: fixed;
 
   color: #fff;
 }
 
+/* ============================= */
 /* CONTACT */
+/* ============================= */
+
 .contact-wrapper {
   position: fixed;
   top: 10px;
@@ -51,6 +67,7 @@ body {
   padding: 6px;
 }
 
+/* CALL POPUP */
 .call-popup {
   display: none;
   flex-direction: column;
@@ -65,7 +82,10 @@ body {
   display: flex;
 }
 
+/* ============================= */
 /* TITLE */
+/* ============================= */
+
 .hero-center {
   height: 30vh;
   display: flex;
@@ -74,14 +94,77 @@ body {
 }
 
 .hero-center h1 {
-  font-size: 34px;
+  font-size: 36px;
   color: gold;
   text-shadow: 0 0 10px gold;
-
   animation: glow 2s infinite alternate;
 }
 
 @keyframes glow {
   from { text-shadow: 0 0 10px gold; }
   to   { text-shadow: 0 0 30px gold; }
+}
+
+/* ============================= */
+/* SERVICES SECTION (NEW 🔥) */
+/* ============================= */
+
+.services-section {
+  padding: 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Each service card */
+.service-block {
+  width: 280px;
+  background: rgba(0,0,0,0.7);
+  border: 1px solid gold;
+  border-radius: 12px;
+  padding: 15px;
+
+  box-shadow: 0 0 15px rgba(255,215,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.service-block:hover {
+  transform: translateY(-5px);
+}
+
+/* Heading */
+.service-block h2 {
+  color: gold;
+  margin-bottom: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* List */
+.service-block ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.service-block ul li {
+  padding: 4px 0;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255,215,0,0.2);
+}
+
+/* ============================= */
+/* MOBILE RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  .hero-center h1 {
+    font-size: 26px;
+  }
+
+  .service-block {
+    width: 90%;
+  }
+
 }
