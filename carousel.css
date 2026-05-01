@@ -1,53 +1,71 @@
+/* ============================= */
+/* CAROUSEL SECTION */
+/* ============================= */
+
 .carousel-section {
-  margin-top: -20px;
+  margin-top: 10px;              /* FIX: removed negative overlap */
+  margin-bottom: 40px;
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* DEPTH */
+/* ============================= */
+/* CONTAINER (DEPTH) */
+/* ============================= */
+
 .carousel-container {
-  perspective: 1200px;
+  perspective: 1400px;           /* increased for better 3D feel */
   width: 100%;
-  height: 420px;
+  height: 450px;                /* slightly more space */
 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* ============================= */
 /* MAIN ROTATION */
+/* ============================= */
+
 .carousel {
   width: 100%;
   height: 100%;
   position: relative;
 
   transform-style: preserve-3d;
-
-  /* 🔥 THIS IS THE MAIN FIX */
   transition: transform 1s ease-in-out;
+
+  will-change: transform;       /* smoother animation */
 }
 
+/* ============================= */
 /* CARD */
+/* ============================= */
+
 .card {
   position: absolute;
-  width: 170px;
-  height: 230px;
+  width: 180px;
+  height: 240px;
 
   left: 50%;
   top: 50%;
 
-  margin-left: -85px;
-  margin-top: -115px;
+  margin-left: -90px;
+  margin-top: -120px;
 
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
   border: 2px solid gold;
 
-  /* 🔥 smoother rendering */
+  background: #000;
+
   backface-visibility: hidden;
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
+/* IMAGE */
 .card img {
   width: 100%;
   height: 100%;
@@ -59,15 +77,69 @@
   position: absolute;
   bottom: 0;
   width: 100%;
+
   text-align: center;
-  background: rgba(0,0,0,0.7);
+  padding: 6px;
+
+  background: rgba(0,0,0,0.75);
   color: gold;
+  font-size: 14px;
 }
 
-/* 🔥 MORE DEPTH = BETTER ANIMATION VISIBILITY */
-.card:nth-child(1) { transform: rotateY(0deg) translateZ(260px); }
-.card:nth-child(2) { transform: rotateY(60deg) translateZ(260px); }
-.card:nth-child(3) { transform: rotateY(120deg) translateZ(260px); }
-.card:nth-child(4) { transform: rotateY(180deg) translateZ(260px); }
-.card:nth-child(5) { transform: rotateY(240deg) translateZ(260px); }
-.card:nth-child(6) { transform: rotateY(300deg) translateZ(260px); }
+/* ============================= */
+/* 3D POSITIONING (MORE DEPTH) */
+/* ============================= */
+
+.card:nth-child(1) { transform: rotateY(0deg)   translateZ(300px); }
+.card:nth-child(2) { transform: rotateY(60deg)  translateZ(300px); }
+.card:nth-child(3) { transform: rotateY(120deg) translateZ(300px); }
+.card:nth-child(4) { transform: rotateY(180deg) translateZ(300px); }
+.card:nth-child(5) { transform: rotateY(240deg) translateZ(300px); }
+.card:nth-child(6) { transform: rotateY(300deg) translateZ(300px); }
+
+/* ============================= */
+/* DEPTH EFFECT */
+/* ============================= */
+
+.carousel .card {
+  filter: brightness(0.6);      /* darker for depth */
+}
+
+.carousel .card:nth-child(1) {
+  filter: brightness(1);        /* front card highlight */
+  transform: rotateY(0deg) translateZ(300px) scale(1.05);
+}
+
+/* ============================= */
+/* HOVER (DESKTOP) */
+/* ============================= */
+
+.card:hover {
+  transform: scale(1.08) translateZ(300px);
+  filter: brightness(1.2);
+}
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  .carousel-container {
+    height: 380px;
+  }
+
+  .card {
+    width: 140px;
+    height: 200px;
+    margin-left: -70px;
+    margin-top: -100px;
+  }
+
+  .card:nth-child(1) { transform: rotateY(0deg)   translateZ(220px); }
+  .card:nth-child(2) { transform: rotateY(60deg)  translateZ(220px); }
+  .card:nth-child(3) { transform: rotateY(120deg) translateZ(220px); }
+  .card:nth-child(4) { transform: rotateY(180deg) translateZ(220px); }
+  .card:nth-child(5) { transform: rotateY(240deg) translateZ(220px); }
+  .card:nth-child(6) { transform: rotateY(300deg) translateZ(220px); }
+}
