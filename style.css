@@ -1,64 +1,1609 @@
-/* RESET */
-* { margin:0; padding:0; box-sizing:border-box; }
+/* ==========================================================================
+   🌸 SREE LALITHA EVENTS - WORLD CLASS HINDU TRADITIONAL EVENT THEME 🌸
+   Fully Responsive for All Mobile, Tablet, Laptop, and Desktop Devices
+   ========================================================================== */
 
-/* BODY */
+/* --------------------------------------------------------------------------
+   1. CSS VARIABLES & COLOR PALETTE (Royal Temple Crimson & Sacred Gold)
+   -------------------------------------------------------------------------- */
+:root {
+  --primary-maroon: #3d0711;
+  --dark-maroon: #230309;
+  --royal-burgundy: #540c1a;
+  --deep-velvet: #160105;
+  
+  --gold-pure: #ffd700;
+  --gold-bright: #ffe57f;
+  --gold-warm: #d4af37;
+  --gold-antique: #aa771c;
+  --gold-dark: #7a530f;
+  
+  --haldi-yellow: #ffb300;
+  --kumkum-red: #c62828;
+  --sacred-ochre: #ff9100;
+  --chandanam: #fff8e7;
+  
+  --gold-gradient: linear-gradient(135deg, #fff3a8 0%, #d4af37 35%, #aa771c 70%, #ffd700 100%);
+  --gold-gradient-soft: linear-gradient(135deg, rgba(255,215,0,0.9), rgba(212,175,55,0.7));
+  --maroon-gradient: linear-gradient(180deg, rgba(35,3,9,0.92) 0%, rgba(61,7,17,0.95) 50%, rgba(22,1,5,0.98) 100%);
+  --card-bg: rgba(35, 3, 9, 0.78);
+  --card-border: rgba(212, 175, 55, 0.45);
+  --card-glow: 0 10px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.2);
+  
+  --font-telugu: 'Noto Serif Telugu', 'Gautami', serif;
+  --font-royal: 'Cinzel Decorative', 'Cinzel', serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  --transition-smooth: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  --border-radius-card: 16px;
+  --nav-height: 72px;
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & GLOBAL SETUP
+   -------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
 body {
-  font-family: 'Noto Serif Telugu', serif;
+  font-family: var(--font-telugu), var(--font-serif);
+  background-color: var(--dark-maroon);
+  color: var(--chandanam);
   min-height: 100vh;
-  color: #fff;
+  line-height: 1.6;
   overflow-x: hidden;
+  position: relative;
+  width: 100%;
 }
 
-/* BACKGROUND */
+/* Sections with Anchor Scroll Offset */
+section {
+  scroll-margin-top: 90px;
+}
+
+/* Fixed Atmospheric Background with Sacred Overlay */
 body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),
-             url("images/bg.jpg") center/cover no-repeat;
-  z-index:-2;
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 50% 10%, rgba(212, 175, 55, 0.15), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(198, 40, 40, 0.12), transparent 40%),
+    linear-gradient(180deg, rgba(22, 1, 5, 0.82) 0%, rgba(45, 6, 13, 0.88) 50%, rgba(15, 1, 4, 0.96) 100%),
+    url("images/bg.jpg") center/cover no-repeat;
+  z-index: -3;
+  pointer-events: none;
 }
 
-/* CONTACT */
-.contact-wrapper { position:fixed; top:10px; right:10px; z-index:999; }
-.contact-btn { padding:8px 14px; background:#000a; color:gold; border:1px solid gold; border-radius:20px; }
-.contact-menu, .call-popup {
-  display:none; flex-direction:column; margin-top:6px;
-  background:#000c; border:1px solid gold; border-radius:10px; padding:8px;
-}
-.contact-menu.active, .call-popup.active { display:flex; }
-.contact-menu a, .call-popup a { color:gold; text-decoration:none; padding:6px; }
-
-/* TITLE */
-.hero-center { min-height:30vh; display:flex; justify-content:center; align-items:center; }
-.hero-center h1 { font-size:34px; color:gold; animation:glow 2s infinite alternate; }
-@keyframes glow { from{ text-shadow:0 0 10px gold;} to{ text-shadow:0 0 25px gold;} }
-
-/* HIGHLIGHT */
-.highlight-line { text-align:center; margin:10px 0; }
-.highlight-line p {
-  padding:8px 16px;
-  border:1px solid gold;
-  border-radius:20px;
-  color:gold;
+/* Background Mandala Watermark Overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  z-index: -2;
+  pointer-events: none;
 }
 
-/* SERVICES */
+/* Golden Particle Canvas */
+#particlesCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Traditional Hanging Toran across the top */
+.top-toran-garland {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: repeating-linear-gradient(
+    90deg,
+    #ff9100 0px,
+    #ff9100 12px,
+    #ffb300 12px,
+    #ffb300 24px,
+    #2e7d32 24px,
+    #2e7d32 36px,
+    #ffd700 36px,
+    #ffd700 48px
+  );
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  z-index: 1001;
+}
+
+/* Selection */
+::selection {
+  background: var(--gold-warm);
+  color: var(--dark-maroon);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--dark-maroon);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-antique);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-warm);
+}
+
+/* --------------------------------------------------------------------------
+   3. TYPOGRAPHY & GOLD TEXT EFFECTS
+   -------------------------------------------------------------------------- */
+.gold-text {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.gold-glow {
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.6), 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.royal-heading {
+  font-family: var(--font-royal);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.telugu-font {
+  font-family: var(--font-telugu);
+}
+
+/* Traditional Section Headers with Sacred Wings & Kalash Motifs */
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  padding: 0 16px;
+}
+
+.section-header .shloka-badge {
+  display: inline-block;
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  color: var(--haldi-yellow);
+  letter-spacing: 2px;
+  padding: 4px 16px;
+  border-radius: 30px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.section-header h2 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-serif);
+}
+
+.section-header p {
+  color: #eedcc0;
+  font-size: clamp(0.92rem, 2vw, 1.05rem);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.sacred-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px auto 0;
+  max-width: 280px;
+}
+
+.sacred-divider::before,
+.sacred-divider::after {
+  content: "";
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--gold-warm), transparent);
+}
+
+.sacred-divider span {
+  color: var(--gold-bright);
+  font-size: 1.2rem;
+  filter: drop-shadow(0 0 5px var(--gold-warm));
+}
+
+/* --------------------------------------------------------------------------
+   4. TOP AUSPICIOUS INVOCATION BAR (Shloka Bar)
+   -------------------------------------------------------------------------- */
+.top-shloka-bar {
+  background: linear-gradient(90deg, #1f0308, #450b16, #1f0308);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 6px 15px;
+  font-size: clamp(0.72rem, 2vw, 0.85rem);
+  text-align: center;
+  color: var(--gold-bright);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
+  margin-top: 12px; /* below top toran */
+}
+
+.top-shloka-bar .shloka-text {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  flex: 1;
+}
+
+.top-shloka-bar .quick-contacts {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.82rem;
+}
+
+.top-shloka-bar .quick-contacts a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: var(--transition-smooth);
+}
+
+.top-shloka-bar .quick-contacts a:hover {
+  color: var(--gold-bright);
+  text-shadow: 0 0 8px var(--gold-warm);
+}
+
+/* --------------------------------------------------------------------------
+   5. NAVIGATION & ROYAL HEADER
+   -------------------------------------------------------------------------- */
+.royal-nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 990;
+  background: rgba(22, 2, 6, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  transition: var(--transition-smooth);
+  min-height: var(--nav-height);
+  display: flex;
+  align-items: center;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-emblem {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #5c0d1b 0%, #200308 100%);
+  border: 2px solid var(--gold-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+  color: var(--gold-pure);
+  font-size: 1.4rem;
+  transition: transform 0.5s ease;
+  flex-shrink: 0;
+}
+
+.brand-logo:hover .logo-emblem {
+  transform: rotate(360deg) scale(1.05);
+}
+
+.brand-text h1 {
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  font-weight: 700;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.15;
+  font-family: var(--font-serif);
+}
+
+.brand-text span {
+  font-size: 0.7rem;
+  color: #eedcc0;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: block;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #ebdcc5;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+  position: relative;
+  padding: 6px 2px;
+  display: block;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold-gradient);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold-bright);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* Nav Actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Audio Player Button */
+.audio-toggle-btn {
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid var(--gold-warm);
+  color: var(--gold-bright);
+  min-width: 40px;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.audio-toggle-btn:hover {
+  background: var(--gold-warm);
+  color: var(--dark-maroon);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  transform: scale(1.04);
+}
+
+.audio-toggle-btn.playing {
+  animation: pulse-audio 1.6s infinite;
+  background: rgba(255, 215, 0, 0.25);
+}
+
+@keyframes pulse-audio {
+  0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(255, 215, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+/* Mobile Toggle */
+.mobile-nav-toggle {
+  display: none;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--gold-warm);
+  color: var(--gold-bright);
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.mobile-nav-toggle:hover {
+  background: rgba(212, 175, 55, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   6. ROYAL BUTTONS & CALL TO ACTIONS
+   -------------------------------------------------------------------------- */
+.btn-royal-gold {
+  background: var(--gold-gradient);
+  color: var(--dark-maroon) !important;
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 12px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4), inset 0 1px 1px #fff;
+  border: 1px solid #ffd700;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-height: 44px;
+}
+
+.btn-royal-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6), inset 0 1px 2px #fff;
+  filter: brightness(1.1);
+}
+
+.btn-royal-outline {
+  background: rgba(22, 2, 6, 0.6);
+  color: var(--gold-bright) !important;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 12px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1.5px solid var(--gold-warm);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  letter-spacing: 0.5px;
+  min-height: 44px;
+}
+
+.btn-royal-outline:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--gold-pure);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp-instant {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #fff !important;
+  font-weight: 700;
+  padding: 12px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+  transition: var(--transition-smooth);
+  min-height: 44px;
+}
+
+.btn-whatsapp-instant:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.55);
+}
+
+/* --------------------------------------------------------------------------
+   7. HERO SECTION (Grand Temple Mandapam)
+   -------------------------------------------------------------------------- */
+.hero-mandapam-section {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 16px 30px;
+  position: relative;
+}
+
+.mandapam-frame {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px 25px;
+  background: radial-gradient(circle, rgba(61, 7, 17, 0.88) 0%, rgba(26, 2, 6, 0.94) 80%);
+  border: 2px solid var(--card-border);
+  border-radius: 24px;
+  box-shadow: var(--card-glow), inset 0 0 50px rgba(0, 0, 0, 0.8);
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.mandapam-frame::before,
+.mandapam-frame::after {
+  content: "🌺";
+  position: absolute;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  color: var(--gold-pure);
+  filter: drop-shadow(0 0 8px var(--gold-warm));
+}
+.mandapam-frame::before { top: 12px; left: 14px; }
+.mandapam-frame::after { top: 12px; right: 14px; }
+
+.hero-sub-mantra {
+  font-size: clamp(0.82rem, 2vw, 1rem);
+  color: var(--haldi-yellow);
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  animation: pulse-glow 3s infinite alternate;
+}
+
+@keyframes pulse-glow {
+  from { opacity: 0.8; text-shadow: 0 0 5px var(--gold-antique); }
+  to { opacity: 1; text-shadow: 0 0 18px var(--gold-pure); }
+}
+
+.hero-main-title {
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  font-family: var(--font-serif);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.8));
+}
+
+.hero-telugu-title {
+  font-size: clamp(1.15rem, 3.5vw, 1.8rem);
+  color: #fff3db;
+  margin-bottom: 18px;
+  font-weight: 600;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+.hero-desc {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: #eedcc0;
+  max-width: 720px;
+  margin: 0 auto 25px;
+  line-height: 1.7;
+}
+
+.hero-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.hero-badge {
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: clamp(0.78rem, 1.8vw, 0.9rem);
+  color: var(--chandanam);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(5px);
+}
+
+.hero-badge span {
+  color: var(--gold-pure);
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   8. SPECIAL SPOTLIGHT: POOJA SAMAGRI (మా ప్రత్యేకత)
+   -------------------------------------------------------------------------- */
+.pooja-spotlight-section {
+  padding: 50px 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pooja-spotlight-card {
+  background: linear-gradient(135deg, rgba(84, 12, 26, 0.9) 0%, rgba(35, 3, 9, 0.95) 100%);
+  border: 2px solid var(--gold-warm);
+  border-radius: 22px;
+  padding: clamp(24px, 4vw, 40px);
+  box-shadow: var(--card-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+.pooja-spotlight-card::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.18), transparent 70%);
+  pointer-events: none;
+}
+
+.pooja-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.pooja-content h3 {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  color: var(--gold-bright);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.pooja-content p {
+  font-size: clamp(0.92rem, 1.8vw, 1.05rem);
+  color: #f3e5d0;
+  margin-bottom: 20px;
+}
+
+.pooja-features-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.pooja-features-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+  color: #fff;
+}
+
+.pooja-features-list li .icon {
+  color: var(--gold-pure);
+  font-size: 1.1rem;
+}
+
+.pooja-kits-box {
+  background: rgba(22, 1, 5, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 18px;
+  padding: 22px;
+  text-align: center;
+}
+
+.pooja-kits-box h4 {
+  color: var(--gold-bright);
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  margin-bottom: 14px;
+  border-bottom: 1px dashed rgba(212, 175, 55, 0.3);
+  padding-bottom: 10px;
+}
+
+.kit-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.kit-tag {
+  background: rgba(212, 175, 55, 0.15);
+  color: #fff;
+  border: 1px solid var(--gold-antique);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.82rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. SERVICES SECTION (Grid of Cards)
+   -------------------------------------------------------------------------- */
 .services-section {
-  padding:40px 20px;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:20px;
+  padding: 50px 16px 70px;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
-.service-block {
-  width:280px;
-  background:#000a;
-  border:1px solid gold;
-  border-radius:12px;
-  padding:15px;
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 24px;
 }
 
-.service-block h2 { color:gold; text-align:center; margin-bottom:10px; }
-.service-block li { font-size:14px; padding:4px 0; }
+.service-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--card-border);
+  border-radius: var(--border-radius-card);
+  padding: 24px 20px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold-pure);
+  box-shadow: var(--card-glow);
+}
+
+.service-card-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  padding-bottom: 12px;
+}
+
+.service-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #5c0d1b, #200308);
+  border: 1.5px solid var(--gold-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--gold-pure);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+  flex-shrink: 0;
+}
+
+.service-title-wrap h3 {
+  font-size: 1.25rem;
+  color: var(--gold-bright);
+  margin-bottom: 2px;
+  font-family: var(--font-serif);
+}
+
+.service-title-wrap span {
+  font-size: 0.82rem;
+  color: var(--haldi-yellow);
+}
+
+.service-card ul {
+  list-style: none;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.service-card ul li {
+  font-size: 0.92rem;
+  color: #eedcc0;
+  padding: 6px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border-bottom: 1px dotted rgba(212, 175, 55, 0.15);
+}
+
+.service-card ul li:last-child {
+  border-bottom: none;
+}
+
+.service-card ul li::before {
+  content: "✨";
+  font-size: 0.8rem;
+  color: var(--gold-warm);
+  margin-top: 2px;
+}
+
+.service-card-footer {
+  margin-top: 10px;
+}
+
+.service-inquire-btn {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  padding: 10px 16px;
+}
+
+/* --------------------------------------------------------------------------
+   10. INTERACTIVE MUHURTHAM CALCULATOR / EVENT QUOTE BUILDER
+   -------------------------------------------------------------------------- */
+.quote-estimator-section {
+  padding: 60px 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.quote-box {
+  background: radial-gradient(circle at top, rgba(61, 7, 17, 0.95), rgba(20, 2, 5, 0.98));
+  border: 2px solid var(--gold-warm);
+  border-radius: 22px;
+  padding: clamp(22px, 4vw, 38px);
+  box-shadow: var(--card-glow);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  color: var(--gold-bright);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-control {
+  background: rgba(10, 1, 3, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition-smooth);
+  width: 100%;
+}
+
+.form-control:focus {
+  border-color: var(--gold-pure);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+  background: rgba(20, 2, 6, 0.95);
+}
+
+/* Custom Checkbox Group for Services */
+.services-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  color: #eedcc0;
+  transition: var(--transition-smooth);
+  user-select: none;
+  min-height: 44px;
+}
+
+.checkbox-label:hover {
+  background: rgba(212, 175, 55, 0.18);
+  border-color: var(--gold-warm);
+}
+
+.checkbox-label input[type="checkbox"] {
+  accent-color: var(--gold-warm);
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.quote-action-row {
+  text-align: center;
+  margin-top: 22px;
+}
+
+/* --------------------------------------------------------------------------
+   11. ROYAL PHOTO GALLERY & LIGHTBOX
+   -------------------------------------------------------------------------- */
+.gallery-section {
+  padding: 60px 16px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.filter-btn {
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #eedcc0;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  min-height: 38px;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--gold-gradient);
+  color: var(--dark-maroon);
+  font-weight: 700;
+  border-color: #ffd700;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  height: 270px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid rgba(212, 175, 55, 0.35);
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: var(--transition-smooth);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(22, 1, 5, 0.9) 0%, rgba(61, 7, 17, 0.4) 60%, transparent 100%);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 18px;
+  transition: opacity 0.35s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-pure);
+  box-shadow: var(--card-glow);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-item:hover .gallery-item-overlay {
+  opacity: 1;
+}
+
+.gallery-item-overlay h4 {
+  color: var(--gold-bright);
+  font-size: 1.1rem;
+  margin-bottom: 3px;
+}
+
+.gallery-item-overlay span {
+  color: var(--haldi-yellow);
+  font-size: 0.82rem;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 1, 3, 0.94);
+  backdrop-filter: blur(12px);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.lightbox-modal.active {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 850px;
+  width: 100%;
+  text-align: center;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 72vh;
+  border-radius: 16px;
+  border: 2px solid var(--gold-warm);
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.5);
+  object-fit: contain;
+}
+
+.lightbox-caption {
+  margin-top: 12px;
+  color: var(--gold-bright);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -42px;
+  right: 0;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.2s;
+  padding: 5px;
+}
+
+.lightbox-close:hover {
+  color: var(--gold-pure);
+}
+
+/* --------------------------------------------------------------------------
+   12. TRADITIONAL VALUES & WHY CHOOSE US
+   -------------------------------------------------------------------------- */
+.values-section {
+  padding: 50px 16px 70px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 20px;
+}
+
+.value-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 26px 18px;
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-pure);
+  box-shadow: var(--card-glow);
+}
+
+.value-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  display: inline-block;
+  filter: drop-shadow(0 0 10px var(--gold-warm));
+}
+
+.value-card h3 {
+  color: var(--gold-bright);
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.value-card p {
+  font-size: 0.9rem;
+  color: #eedcc0;
+}
+
+/* --------------------------------------------------------------------------
+   13. TESTIMONIALS / CLIENT BLESSINGS
+   -------------------------------------------------------------------------- */
+.testimonials-section {
+  padding: 50px 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 22px;
+}
+
+.testimonial-card {
+  background: linear-gradient(145deg, rgba(61, 7, 17, 0.8), rgba(22, 1, 5, 0.9));
+  border: 1.5px solid var(--card-border);
+  border-radius: 18px;
+  padding: 26px 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.testimonial-stars {
+  color: var(--gold-pure);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.testimonial-text {
+  font-size: 0.94rem;
+  color: #f5eedf;
+  font-style: italic;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gold-warm);
+  color: var(--dark-maroon);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.author-info h4 {
+  color: var(--gold-bright);
+  font-size: 0.95rem;
+}
+
+.author-info span {
+  color: var(--haldi-yellow);
+  font-size: 0.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   14. FLOATING CONTACT ACTIONS & SPEED DIAL
+   -------------------------------------------------------------------------- */
+.floating-actions-container {
+  position: fixed;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  right: 18px;
+  z-index: 1500;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.main-floating-btn {
+  background: var(--gold-gradient);
+  color: var(--dark-maroon);
+  border: 2px solid #ffd700;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.5);
+  transition: var(--transition-smooth);
+}
+
+.main-floating-btn:hover {
+  transform: scale(1.08) rotate(15deg);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.8);
+}
+
+.floating-speed-dial {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.floating-speed-dial.active {
+  display: flex;
+  animation: slideUpFade 0.3s ease;
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dial-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: var(--transition-smooth);
+  min-height: 42px;
+}
+
+.dial-item.call {
+  background: linear-gradient(135deg, #1565c0, #0d47a1);
+  color: #fff;
+  border: 1px solid #64b5f6;
+}
+
+.dial-item.whatsapp {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: #fff;
+  border: 1px solid #81c784;
+}
+
+.dial-item.instagram {
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  color: #fff;
+  border: 1px solid #f48fb1;
+}
+
+.dial-item:hover {
+  transform: scale(1.05) translateX(-5px);
+}
+
+/* Call Direct Popup Modal */
+.call-numbers-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, #3d0711 0%, #1a0206 100%);
+  border: 2px solid var(--gold-warm);
+  border-radius: 20px;
+  padding: 26px 20px;
+  z-index: 2500;
+  width: min(90vw, 360px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.4);
+  text-align: center;
+}
+
+.call-numbers-popup.active {
+  display: block;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translate(-50%, -45%) scale(0.9); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.call-numbers-popup h3 {
+  color: var(--gold-bright);
+  font-size: 1.25rem;
+  margin-bottom: 18px;
+}
+
+.call-number-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--gold-warm);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  transition: var(--transition-smooth);
+  min-height: 48px;
+}
+
+.call-number-link:hover {
+  background: var(--gold-gradient);
+  color: var(--dark-maroon);
+}
+
+.popup-close-btn {
+  margin-top: 8px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #eedcc0;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.88rem;
+}
+
+.popup-close-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   15. GRAND TRADITIONAL FOOTER
+   -------------------------------------------------------------------------- */
+.royal-footer {
+  background: linear-gradient(180deg, #1f0308 0%, #0c0103 100%);
+  border-top: 2px solid var(--gold-warm);
+  padding: 50px 16px 30px;
+  position: relative;
+}
+
+.footer-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 30px;
+  margin-bottom: 35px;
+}
+
+.footer-col h4 {
+  color: var(--gold-bright);
+  font-size: 1.15rem;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.footer-col h4::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--gold-warm);
+}
+
+.footer-col p {
+  font-size: 0.9rem;
+  color: #eedcc0;
+  margin-bottom: 12px;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #eedcc0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+}
+
+.footer-links a:hover {
+  color: var(--gold-bright);
+  padding-left: 4px;
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.social-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--gold-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-pure);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: var(--transition-smooth);
+}
+
+.social-circle:hover {
+  background: var(--gold-gradient);
+  color: var(--dark-maroon);
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  font-size: 0.85rem;
+  color: #b59f84;
+}
+
+.footer-bottom .blessing {
+  color: var(--gold-bright);
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   16. COMPREHENSIVE RESPONSIVE BREAKPOINTS (Mobile, Tablet, Desktop)
+   -------------------------------------------------------------------------- */
+
+/* Large Tablets & Small Laptops (<= 1024px) */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+  
+  .pooja-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+/* Tablets & Mobile Devices (<= 900px) */
+@media (max-width: 900px) {
+  .top-shloka-bar .quick-contacts {
+    display: none;
+  }
+  
+  .top-shloka-bar {
+    justify-content: center;
+  }
+  
+  .mobile-nav-toggle {
+    display: flex;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: calc(var(--nav-height) + 10px);
+    left: 0;
+    width: 100%;
+    background: rgba(22, 2, 6, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 24px 20px;
+    gap: 14px;
+    border-bottom: 2px solid var(--gold-warm);
+    transform: translateY(-150%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.85);
+    max-height: calc(100vh - var(--nav-height) - 10px);
+    overflow-y: auto;
+  }
+  
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    font-size: 1.05rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: rgba(212, 175, 55, 0.06);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    text-align: center;
+  }
+}
+
+/* Smartphones (<= 600px) */
+@media (max-width: 600px) {
+  .mandapam-frame {
+    padding: 35px 16px;
+    border-radius: 18px;
+  }
+
+  .hero-cta-group a {
+    width: 100%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pooja-features-list {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .floating-actions-container {
+    right: 12px;
+    bottom: calc(15px + env(safe-area-inset-bottom, 0px));
+  }
+}
+

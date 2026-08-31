@@ -1,145 +1,293 @@
-/* ============================= */
-/* CAROUSEL SECTION */
-/* ============================= */
+/* ==========================================================================
+   🎡 SREE LALITHA EVENTS - 3D ROYAL CAROUSEL SHOWCASE
+   Multi-tier Responsive Breakpoints (Desktop, Laptop, Tablet, Mobile)
+   ========================================================================== */
 
 .carousel-section {
-  margin-top: 10px;              /* FIX: removed negative overlap */
-  margin-bottom: 40px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* ============================= */
-/* CONTAINER (DEPTH) */
-/* ============================= */
-
-.carousel-container {
-  perspective: 1400px;           /* increased for better 3D feel */
+  position: relative;
+  padding: 40px 16px 50px;
+  overflow: hidden;
   width: 100%;
-  height: 450px;                /* slightly more space */
+}
 
+.carousel-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* 3D Perspective Viewport */
+.carousel-container {
+  perspective: 1300px;
+  width: 100%;
+  height: 480px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
 }
 
-/* ============================= */
-/* MAIN ROTATION */
-/* ============================= */
+.carousel-container:active {
+  cursor: grabbing;
+}
 
+/* Rotating Carousel Ring */
 .carousel {
   width: 100%;
   height: 100%;
   position: relative;
-
   transform-style: preserve-3d;
-  transition: transform 1s ease-in-out;
-
-  will-change: transform;       /* smoother animation */
+  transition: transform 0.85s cubic-bezier(0.2, 0.85, 0.4, 1.15);
+  will-change: transform;
 }
 
-/* ============================= */
-/* CARD */
-/* ============================= */
-
+/* 3D Service Card (Default Desktop) */
 .card {
   position: absolute;
-  width: 180px;
-  height: 240px;
-
+  width: 230px;
+  height: 320px;
   left: 50%;
   top: 50%;
-
-  margin-left: -90px;
-  margin-top: -120px;
-
-  border-radius: 14px;
+  margin-left: -115px;
+  margin-top: -160px;
+  border-radius: 18px;
   overflow: hidden;
-  border: 2px solid gold;
-
-  background: #000;
-
+  border: 2.5px solid var(--gold-warm, #d4af37);
+  background: radial-gradient(circle, #3d0711 0%, #150105 100%);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.75), 0 0 15px rgba(212, 175, 55, 0.3);
   backface-visibility: hidden;
-  transition: transform 0.4s ease, filter 0.4s ease;
+  transition: transform 0.4s ease, filter 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* IMAGE */
+/* Image */
 .card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+  pointer-events: none;
 }
 
-/* TEXT */
+.card:hover img {
+  transform: scale(1.08);
+}
+
+/* Traditional Card Overlay */
 .card-overlay {
   position: absolute;
   bottom: 0;
+  left: 0;
   width: 100%;
-
+  padding: 14px 10px;
+  background: linear-gradient(180deg, transparent 0%, rgba(20, 1, 5, 0.95) 75%);
   text-align: center;
-  padding: 6px;
-
-  background: rgba(0,0,0,0.75);
-  color: gold;
-  font-size: 14px;
+  border-top: 1px solid rgba(212, 175, 55, 0.4);
 }
 
-/* ============================= */
-/* 3D POSITIONING (MORE DEPTH) */
-/* ============================= */
-
-.card:nth-child(1) { transform: rotateY(0deg)   translateZ(300px); }
-.card:nth-child(2) { transform: rotateY(60deg)  translateZ(300px); }
-.card:nth-child(3) { transform: rotateY(120deg) translateZ(300px); }
-.card:nth-child(4) { transform: rotateY(180deg) translateZ(300px); }
-.card:nth-child(5) { transform: rotateY(240deg) translateZ(300px); }
-.card:nth-child(6) { transform: rotateY(300deg) translateZ(300px); }
-
-/* ============================= */
-/* DEPTH EFFECT */
-/* ============================= */
-
-.carousel .card {
-  filter: brightness(0.6);      /* darker for depth */
+.card-title {
+  font-family: var(--font-serif, serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--gold-pure, #ffd700);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+  margin-bottom: 2px;
 }
 
-.carousel .card:nth-child(1) {
-  filter: brightness(1);        /* front card highlight */
-  transform: rotateY(0deg) translateZ(300px) scale(1.05);
+.card-subtitle {
+  font-size: 0.78rem;
+  color: #eedcc0;
+  letter-spacing: 0.5px;
 }
 
-/* ============================= */
-/* HOVER (DESKTOP) */
-/* ============================= */
+/* 3D Depth Positioning (Desktop Default) */
+.card:nth-child(1) { transform: rotateY(0deg) translateZ(320px); }
+.card:nth-child(2) { transform: rotateY(60deg) translateZ(320px); }
+.card:nth-child(3) { transform: rotateY(120deg) translateZ(320px); }
+.card:nth-child(4) { transform: rotateY(180deg) translateZ(320px); }
+.card:nth-child(5) { transform: rotateY(240deg) translateZ(320px); }
+.card:nth-child(6) { transform: rotateY(300deg) translateZ(320px); }
 
-.card:hover {
-  transform: scale(1.08) translateZ(300px);
-  filter: brightness(1.2);
+/* Navigation Controls (Arrows + Dots) */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+  z-index: 10;
 }
 
-/* ============================= */
-/* MOBILE */
-/* ============================= */
+.carousel-btn {
+  background: rgba(35, 3, 9, 0.85);
+  border: 1.5px solid var(--gold-warm, #d4af37);
+  color: var(--gold-bright, #ffe57f);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(212, 175, 55, 0.2);
+  transition: all 0.3s ease;
+  min-height: 44px;
+  min-width: 44px;
+}
 
-@media (max-width: 768px) {
+.carousel-btn:hover {
+  background: var(--gold-gradient, linear-gradient(135deg, #ffd700, #aa771c));
+  color: #230309;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
 
+/* Indicators / Dots */
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.25);
+  border: 1px solid var(--gold-warm, #d4af37);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: var(--gold-pure, #ffd700);
+  width: 26px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+/* ==========================================================================
+   MULTI-TIER RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Laptops & Medium Desktops (992px - 1199px) */
+@media (max-width: 1199px) and (min-width: 992px) {
   .carousel-container {
-    height: 380px;
+    height: 430px;
+    perspective: 1100px;
   }
 
   .card {
-    width: 140px;
-    height: 200px;
-    margin-left: -70px;
-    margin-top: -100px;
+    width: 200px;
+    height: 280px;
+    margin-left: -100px;
+    margin-top: -140px;
   }
 
-  .card:nth-child(1) { transform: rotateY(0deg)   translateZ(220px); }
-  .card:nth-child(2) { transform: rotateY(60deg)  translateZ(220px); }
-  .card:nth-child(3) { transform: rotateY(120deg) translateZ(220px); }
-  .card:nth-child(4) { transform: rotateY(180deg) translateZ(220px); }
-  .card:nth-child(5) { transform: rotateY(240deg) translateZ(220px); }
-  .card:nth-child(6) { transform: rotateY(300deg) translateZ(220px); }
+  .card:nth-child(1) { transform: rotateY(0deg) translateZ(280px); }
+  .card:nth-child(2) { transform: rotateY(60deg) translateZ(280px); }
+  .card:nth-child(3) { transform: rotateY(120deg) translateZ(280px); }
+  .card:nth-child(4) { transform: rotateY(180deg) translateZ(280px); }
+  .card:nth-child(5) { transform: rotateY(240deg) translateZ(280px); }
+  .card:nth-child(6) { transform: rotateY(300deg) translateZ(280px); }
 }
+
+/* Tablets (768px - 991px) */
+@media (max-width: 991px) and (min-width: 768px) {
+  .carousel-container {
+    height: 390px;
+    perspective: 950px;
+  }
+
+  .card {
+    width: 175px;
+    height: 250px;
+    margin-left: -87px;
+    margin-top: -125px;
+  }
+
+  .card:nth-child(1) { transform: rotateY(0deg) translateZ(240px); }
+  .card:nth-child(2) { transform: rotateY(60deg) translateZ(240px); }
+  .card:nth-child(3) { transform: rotateY(120deg) translateZ(240px); }
+  .card:nth-child(4) { transform: rotateY(180deg) translateZ(240px); }
+  .card:nth-child(5) { transform: rotateY(240deg) translateZ(240px); }
+  .card:nth-child(6) { transform: rotateY(300deg) translateZ(240px); }
+}
+
+/* Mobile Devices (480px - 767px) */
+@media (max-width: 767px) and (min-width: 480px) {
+  .carousel-container {
+    height: 350px;
+    perspective: 800px;
+  }
+
+  .card {
+    width: 150px;
+    height: 215px;
+    margin-left: -75px;
+    margin-top: -107px;
+  }
+
+  .card:nth-child(1) { transform: rotateY(0deg) translateZ(190px); }
+  .card:nth-child(2) { transform: rotateY(60deg) translateZ(190px); }
+  .card:nth-child(3) { transform: rotateY(120deg) translateZ(190px); }
+  .card:nth-child(4) { transform: rotateY(180deg) translateZ(190px); }
+  .card:nth-child(5) { transform: rotateY(240deg) translateZ(190px); }
+  .card:nth-child(6) { transform: rotateY(300deg) translateZ(190px); }
+
+  .card-title {
+    font-size: 0.95rem;
+  }
+  
+  .card-subtitle {
+    font-size: 0.72rem;
+  }
+}
+
+/* Small Mobile Phones (< 480px) */
+@media (max-width: 479px) {
+  .carousel-container {
+    height: 320px;
+    perspective: 680px;
+  }
+
+  .card {
+    width: 130px;
+    height: 190px;
+    margin-left: -65px;
+    margin-top: -95px;
+    border-width: 1.5px;
+  }
+
+  .card:nth-child(1) { transform: rotateY(0deg) translateZ(155px); }
+  .card:nth-child(2) { transform: rotateY(60deg) translateZ(155px); }
+  .card:nth-child(3) { transform: rotateY(120deg) translateZ(155px); }
+  .card:nth-child(4) { transform: rotateY(180deg) translateZ(155px); }
+  .card:nth-child(5) { transform: rotateY(240deg) translateZ(155px); }
+  .card:nth-child(6) { transform: rotateY(300deg) translateZ(155px); }
+
+  .card-title {
+    font-size: 0.85rem;
+  }
+  
+  .card-subtitle {
+    font-size: 0.68rem;
+  }
+  
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+}
+
+

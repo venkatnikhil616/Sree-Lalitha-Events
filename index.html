@@ -1,131 +1,842 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="te">
 <head>
-  <meta charset="UTF-8">                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sree Lalitha Events</title>
-                                                    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@400;700&display=swap" rel="stylesheet">                                 
-  <link rel="stylesheet" href="style.css">          <link rel="stylesheet" href="carousel.css">
-</head>                                           
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>శ్రీ లలితా ఈవెంట్స్ | Sree Lalitha Events - Royal Hindu Traditional Event Management</title>
+  <meta name="description" content="Sree Lalitha Events - Complete Hindu Traditional Event Management in Andhra Pradesh & Telangana. Weddings, Pooja Samagri, Bridal Makeups, Mandapam Decors, Haldi, Mehendi & Food Stalls.">
+  <meta name="keywords" content="Sree Lalitha Events, Hindu Traditional Wedding, Pooja Samagri, Telugu Weddings, Mandapam Decors, Bridal Makeup, Groom Makeup, Mehendi, Haldi, Food Stalls, Andhra Pradesh Events, Telangana Events">
+  <meta name="theme-color" content="#3d0711">
+
+  <!-- Open Graph / Social Sharing Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="శ్రీ లలితా ఈవెంట్స్ | Sree Lalitha Events">
+  <meta property="og:description" content="పూజా సామాగ్రి & సంపూర్ణ సాంప్రదాయ శుభకార్యాల నిర్వహణ మా ప్రత్యేకత.">
+  <meta property="og:image" content="images/decors.jpg">
+
+  <!-- Google Fonts: Royal Serif, Telugu, & Modern Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Noto+Serif+Telugu:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="carousel.css">
+</head>
 <body>
 
-  <!-- CONTACT -->
-  <div class="contact-wrapper">                       <button class="contact-btn" onclick="toggleContactMenu(event)">
-      ☎ Contact
-    </button>
+  <!-- 1. TOP HANGING TRADITIONAL TORAN (Mango Leaves & Marigolds) -->
+  <div class="top-toran-garland"></div>
 
-    <div class="contact-menu" id="contactMenu">
-      <a href="#" onclick="openCallPopup(event)"> 📞 Call</a>
-      <a href="https://wa.me/917780223497" target="_blank">💬 WhatsApp</a>
-      <a href="https://www.instagram.com/sri_lalitha_events25?igsh=MTRuMG04YXF5em1scg==" target="_blank">📸 Instagram</a>
+  <!-- 2. AUSPICIOUS TOP SHLOKA BAR -->
+  <div class="top-shloka-bar">
+    <div class="shloka-text">
+      || ॐ శ్రీ లలితాంబికాయై నమః || శుభమస్తు | అవిఘ్నమస్తు | కళ్యాణమస్తు ||
     </div>
-
-    <div class="call-popup" id="callPopup">
+    <div class="quick-contacts">
       <a href="tel:9398665711">📞 9398665711</a>
       <a href="tel:9182700508">📞 9182700508</a>
-      <a href="tel:9182700508">📞 7780223497</a>
+      <a href="tel:7780223497">📞 7780223497</a>
     </div>
   </div>
 
-  <!-- TITLE -->
-  <section class="hero-center">
-    <h1>Sree Lalitha Events</h1>
+  <!-- 3. GOLDEN PARTICLES CANVAS -->
+  <canvas id="particlesCanvas"></canvas>
+
+  <!-- 4. ROYAL NAVIGATION HEADER -->
+  <header class="royal-nav">
+    <div class="nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo">
+        <div class="logo-emblem">🪔</div>
+        <div class="brand-text">
+          <h1>Sree Lalitha Events</h1>
+          <span>శ్రీ లలితా ఈవెంట్స్</span>
+        </div>
+      </a>
+
+      <!-- Nav Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">హోమ్ (Home)</a></li>
+        <li><a href="#showcase">3D షోకేస్ (Showcase)</a></li>
+        <li><a href="#pooja-special">పూజా సామాగ్రి (Pooja Special)</a></li>
+        <li><a href="#services">సేవలు (Services)</a></li>
+        <li><a href="#gallery">గ్యాలరీ (Gallery)</a></li>
+        <li><a href="#booking">బుకింగ్ (Booking)</a></li>
+        <li><a href="#contact">సంప్రదించండి (Contact)</a></li>
+      </ul>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <!-- Traditional Audio Player Toggle -->
+        <button class="audio-toggle-btn" id="audioToggleBtn" title="Play Auspicious Ambience Music">
+          🎵
+        </button>
+
+        <!-- Instant Book Button -->
+        <a href="#booking" class="btn-royal-gold" style="display: none; @media(min-width: 900px){display:inline-flex;}">
+          🌸 బుకింగ్
+        </a>
+
+        <!-- Mobile Nav Toggle -->
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Menu">
+          ☰
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 5. HERO SECTION (Grand Temple Mandapam) -->
+  <section class="hero-mandapam-section" id="home">
+    <div class="mandapam-frame">
+      
+      <div class="hero-sub-mantra">
+        || సంపూర్ణ సాంప్రదాయ శుభకార్యాల వేదిక ||
+      </div>
+
+      <h1 class="hero-main-title">
+        Sree Lalitha Events
+      </h1>
+
+      <div class="hero-telugu-title">
+        శ్రీ లలితా ఈవెంట్స్ & సాంప్రదాయ పూజా సామాగ్రి
+      </div>
+
+      <p class="hero-desc">
+        హిందూ సాంప్రదాయ పద్ధతిలో వివాహాలు, గృహప్రవేశాలు, వ్రతాలు, పసుపు-మెహందీ వేడుకలు మరియు అన్ని రకాల శుభకార్యాలను అద్భుతంగా, ఘనంగా నిర్వహించే అగ్రశ్రేణి ఈవెంట్ మేనేజ్మెంట్ సంస్థ.
+      </p>
+
+      <!-- Highlight Badges -->
+      <div class="hero-badges-row">
+        <div class="hero-badge"><span>🪔</span> పూజా సామాగ్రి మా ప్రత్యేకత</div>
+        <div class="hero-badge"><span>👑</span> రాయల్ మండపం డెకరేషన్స్</div>
+        <div class="hero-badge"><span>💄</span> బ్రైడల్ & గ్రూమ్ మేకప్స్</div>
+        <div class="hero-badge"><span>🍲</span> రుచికరమైన ఫుడ్ స్టాల్స్</div>
+      </div>
+
+      <!-- Hero Call To Actions -->
+      <div class="hero-cta-group">
+        <a href="#booking" class="btn-royal-gold">
+          🌸 ముహూర్తం బుకింగ్ / Instant Quote
+        </a>
+        <a href="https://wa.me/917780223497?text=Hi%20Sree%20Lalitha%20Events,%20I%20am%20interested%20in%20your%20event%20services." target="_blank" class="btn-whatsapp-instant">
+          💬 WhatsApp లో సంప్రదించండి
+        </a>
+        <a href="#services" class="btn-royal-outline">
+          ✨ సేవలు వీక్షించండి
+        </a>
+      </div>
+
+    </div>
   </section>
 
-  <!-- HIGHLIGHT -->
-  <section class="highlight-line">
-    <p>✨ పూజా సామాగ్రి మా ప్రత్యేకత ✨</p>
+  <!-- 6. 3D ROYAL CAROUSEL SHOWCASE SECTION -->
+  <section class="carousel-section" id="showcase">
+    
+    <div class="section-header">
+      <div class="shloka-badge">|| రాయల్ షోకేస్ ||</div>
+      <h2>3D Event Showcase</h2>
+      <p>మా ప్రత్యేక సేవలు మరియు అలంకరణలను 3D లో వీక్షించండి</p>
+      <div class="sacred-divider"><span>🪔</span></div>
+    </div>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-container">
+        <div class="carousel" id="carousel">
+
+          <!-- 1. Bridal Card -->
+          <div class="card">
+            <img src="images/bridal.jpg" alt="Bridal Makeup Sree Lalitha Events" loading="lazy">
+            <div class="card-overlay">
+              <div class="card-title">Bridal Makeups</div>
+              <div class="card-subtitle">పెళ్లికూతురు అలంకరణ</div>
+            </div>
+          </div>
+
+          <!-- 2. Groom Card -->
+          <div class="card">
+            <img src="images/groom.jpg" alt="Groom Makeup Sree Lalitha Events" loading="lazy">
+            <div class="card-overlay">
+              <div class="card-title">Groom Makeups</div>
+              <div class="card-subtitle">పెళ్లికొడుకు స్టైలింగ్</div>
+            </div>
+          </div>
+
+          <!-- 3. Mehendi Card -->
+          <div class="card">
+            <img src="images/mehandi.jpg" alt="Mehendi & Haldi Sree Lalitha Events" loading="lazy">
+            <div class="card-overlay">
+              <div class="card-title">Mehendi & Haldi</div>
+              <div class="card-subtitle">పసుపు & మెహందీ వేడుక</div>
+            </div>
+          </div>
+
+          <!-- 4. Stalls Card -->
+          <div class="card">
+            <img src="images/stalls.jpg" alt="Event Stalls Sree Lalitha Events" loading="lazy">
+            <div class="card-overlay">
+              <div class="card-title">Event Stalls</div>
+              <div class="card-subtitle">వెల్కమ్ & ఈవెంట్ స్టాల్స్</div>
+            </div>
+          </div>
+
+          <!-- 5. Food Card -->
+          <div class="card">
+            <img src="images/food.jpg" alt="Food Catering Sree Lalitha Events" loading="lazy">
+            <div class="card-overlay">
+              <div class="card-title">Royal Food Stalls</div>
+              <div class="card-subtitle">రుచికరమైన విందు స్టాల్స్</div>
+            </div>
+          </div>
+
+          <!-- 6. Decors Card -->
+          <div class="card">
+            <img src="images/decors.jpg" alt="Theme Mandapam Decors Sree Lalitha Events" loading="lazy">
+            <div class="card-overlay">
+              <div class="card-title">Mandapam Decors</div>
+              <div class="card-subtitle">దివ్యమైన మండపం డెకరేషన్స్</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="carouselPrev" aria-label="Previous Slide">‹</button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-btn" id="carouselNext" aria-label="Next Slide">›</button>
+      </div>
+
+    </div>
   </section>
 
-  <!-- CAROUSEL -->
-  <section class="carousel-section">
-    <div class="carousel-container">
-      <div class="carousel" id="carousel">
+  <!-- 7. SPECIAL SPOTLIGHT: POOJA SAMAGRI (మా ప్రత్యేకత) -->
+  <section class="pooja-spotlight-section" id="pooja-special">
+    <div class="pooja-spotlight-card">
+      
+      <div class="pooja-grid">
+        
+        <div class="pooja-content">
+          <div class="shloka-badge">✨ మా ప్రత్యేక సేవ ✨</div>
+          <h3>సంపూర్ణ సాంప్రదాయ పూజా సామాగ్రి</h3>
+          <p>
+            వివాహం, సత్యనారాయణ స్వామి వ్రతం, గృహప్రవేశం, సీమంతం మరియు గణపతి హోమం మొదలైన అన్ని శుభకార్యాలకు కావలసిన 100% స్వచ్ఛమైన మరియు సంపూర్ణ పూజా ద్రవ్యాలు, తాజా పూలు, కొబ్బరి బోండాల చెక్కడాలు మరియు పురోహితుల సమన్వయం మా ప్రత్యేకత.
+          </p>
 
-        <div class="card"><img src="images/bridal.jpg"><div class="card-overlay">Bridal</div></div>
-        <div class="card"><img src="images/groom.jpg"><div class="card-overlay">Groom</div></div>
-        <div class="card"><img src="images/mehandi.jpg"><div class="card-overlay">Mehandi</div></div>
-        <div class="card"><img src="images/stalls.jpg"><div class="card-overlay">Stalls</div></div>
-        <div class="card"><img src="images/food.jpg"><div class="card-overlay">Food</div></div>
-        <div class="card"><img src="images/decors.jpg"><div class="card-overlay">Decor</div></div>
+          <ul class="pooja-features-list">
+            <li><span class="icon">🪔</span> సంపూర్ణ వ్రత & హోమ సామాగ్రి కిట్స్</li>
+            <li><span class="icon">🥥</span> కస్టమైజ్డ్ పెళ్లి కొబ్బరి బోండాలు</li>
+            <li><span class="icon">🧺</span> రాయల్ పెళ్లి బుట్టల అలంకరణ</li>
+            <li><span class="icon">🌸</span> తాజా పువ్వులు & విశేష పూలమాలలు</li>
+            <li><span class="icon">🌾</span> పసుపు, కుంకుమ & జీలకర్ర బెల్లం సెట్</li>
+            <li><span class="icon">🕉️</span> వేద పండితుల సలహా & సమన్వయం</li>
+          </ul>
+
+          <a href="https://wa.me/917780223497?text=Hi%20Sree%20Lalitha%20Events,%20I%20need%20details%20about%20Pooja%20Samagri%20Kits." target="_blank" class="btn-royal-gold">
+            🪔 పూజా సామాగ్రి ఆర్డర్ చేయండి
+          </a>
+        </div>
+
+        <div class="pooja-kits-box">
+          <h4>అందుబాటులో ఉన్న పూజా కిట్లు</h4>
+          
+          <div class="kit-tags">
+            <span class="kit-tag">వివాహ పూజా కిట్</span>
+            <span class="kit-tag">శ్రీ సత్యనారాయణ వ్రతం</span>
+            <span class="kit-tag">గృహప్రవేశ హోమ కిట్</span>
+            <span class="kit-tag">గణపతి హోమం</span>
+            <span class="kit-tag">లక్ష్మీ కుబేర పూజ</span>
+            <span class="kit-tag">నవగ్రహ శాంతి హోమం</span>
+            <span class="kit-tag">సీమంతం & బారసాల</span>
+            <span class="kit-tag">ప్రత్యేక పూల అలంకరణ</span>
+          </div>
+
+          <p style="font-size: 0.9rem; color: #eedcc0; margin-bottom: 15px;">
+            ప్రతి వస్తువు శాస్త్రోక్తంగా, అత్యంత పవిత్రంగా ప్యాక్ చేసి మీ ఇంటి వద్దకే అందజేయబడును.
+          </p>
+
+          <a href="tel:9398665711" class="btn-royal-outline open-call-popup-btn">
+            📞 నేరుగా కాల్ చేయండి
+          </a>
+        </div>
 
       </div>
+
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="services-section">
-
-    <div class="service-block">
-      <h2>Bridal Makeups</h2>
-      <ul>
-        <li>HD Bridal Makeup</li>
-        <li>Air brush makeup</li>
-        <li>Matte makeup</li>
-        <li>Natural / Minimalist makeup</li>
-        <li>Traditional makeup</li>
-        <li>Smokey Eye</li>
-      </ul>
+  <!-- 8. DETAILED SERVICES SECTION -->
+  <section class="services-section" id="services">
+    
+    <div class="section-header">
+      <div class="shloka-badge">|| సమగ్ర సేవలు ||</div>
+      <h2>మా విస్తృత సేవలు</h2>
+      <p>మీ శుభకార్యానికి కావలసిన ప్రతి సేవను ఒకే చోట అత్యుత్తమ నాణ్యతతో అందిస్తున్నాము</p>
+      <div class="sacred-divider"><span>🌺</span></div>
     </div>
 
-    <div class="service-block">
-      <h2>Groom Makeups</h2>
-      <ul>
-        <li>Color Correction & Concealer</li>
-        <li>Base makeup</li>
-        <li>Lightweight</li>
-        <li>Natural</li>
-        <li>Sitting / Finishing</li>
-      </ul>
-    </div>
+    <div class="services-grid">
 
-    <div class="service-block">
-      <h2>Mehandi's</h2>
-      <ul>
-        <li>Traditional mehandi</li>
-        <li>Floral mehandi</li>
-        <li>Arabic mehandi</li>
-        <li>Rajasthani mehandi</li>
-        <li>Mandala mehandi</li>
-      </ul>
-    </div>
+      <!-- 1. Bridal Makeup -->
+      <div class="service-card">
+        <div class="service-card-top">
+          <div class="service-icon-box">💄</div>
+          <div class="service-title-wrap">
+            <h3>Bridal Makeups</h3>
+            <span>పెళ్లికూతురు అలంకరణ</span>
+          </div>
+        </div>
+        <ul>
+          <li>HD Bridal Professional Makeup</li>
+          <li>Ultra Airbrush Long-lasting Makeup</li>
+          <li>Royal Matte Finish & Glow Makeup</li>
+          <li>Natural & Minimalist Elegant Makeup</li>
+          <li>South Indian Traditional Temple Jewellery Styling</li>
+          <li>Smokey Eye & Royal Hair Styling</li>
+        </ul>
+        <div class="service-card-footer">
+          <a href="https://wa.me/917780223497?text=I%20want%20to%20inquire%20about%20Bridal%20Makeup%20packages." target="_blank" class="btn-royal-outline service-inquire-btn">
+            💄 ఇన్క్వైరీ చేయండి
+          </a>
+        </div>
+      </div>
 
-    <div class="service-block">
-      <h2>Stalls</h2>
-      <ul>
-        <li>Welcome Girls</li>
-        <li>Anchoring</li>
-        <li>Surprise Gifts</li>
-        <li>Live Letters with Roses</li>
-      </ul>
-    </div>
+      <!-- 2. Groom Makeup -->
+      <div class="service-card">
+        <div class="service-card-top">
+          <div class="service-icon-box">👑</div>
+          <div class="service-title-wrap">
+            <h3>Groom Styling</h3>
+            <span>పెళ్లికొడుకు స్టైలింగ్</span>
+          </div>
+        </div>
+        <ul>
+          <li>Color Correction & High Definition Base</li>
+          <li>Lightweight Natural Groom Makeup</li>
+          <li>Beard Styling, Trimming & Grooming</li>
+          <li>Royal Turban / Pelli Peta Wrapping</li>
+          <li>Stage Sitting Touchups & Photo Finish</li>
+          <li>Traditional Dhoti & Shawl Draping</li>
+        </ul>
+        <div class="service-card-footer">
+          <a href="https://wa.me/917780223497?text=I%20want%20to%20inquire%20about%20Groom%20Styling%20packages." target="_blank" class="btn-royal-outline service-inquire-btn">
+            👑 ఇన్క్వైరీ చేయండి
+          </a>
+        </div>
+      </div>
 
-    <div class="service-block">
-      <h2>Food Stalls</h2>
-      <ul>
-        <li>Jalebi / Samosa / Bajji</li>
-        <li>Gulab Jamun & Ice-cream</li>
-        <li>Fruit Salads</li>
-        <li>Panipuri & Chat</li>
-        <li>Mocktails</li>
-        <li>Cocktails</li>
-      </ul>
-    </div>
+      <!-- 3. Mehendi & Haldi -->
+      <div class="service-card">
+        <div class="service-card-top">
+          <div class="service-icon-box">🌿</div>
+          <div class="service-title-wrap">
+            <h3>Mehendi & Haldi</h3>
+            <span>మెహందీ & పసుపు వేడుక</span>
+          </div>
+        </div>
+        <ul>
+          <li>100% Organic Dark-Stain Mehendi Cone</li>
+          <li>Rajasthani, Mandala & Arabic Designs</li>
+          <li>Bridal Custom Figure & Portrait Mehendi</li>
+          <li>Haldi Flower Shower & Pool Setups</li>
+          <li>Marigold / Genda Phool Garland Themes</li>
+          <li>Special Mehendi Props & Photobooth</li>
+        </ul>
+        <div class="service-card-footer">
+          <a href="https://wa.me/917780223497?text=I%20want%20to%20inquire%20about%20Haldi%20and%20Mehendi%20services." target="_blank" class="btn-royal-outline service-inquire-btn">
+            🌿 ఇన్క్వైరీ చేయండి
+          </a>
+        </div>
+      </div>
 
-    <div class="service-block">
-      <h2>Decors</h2>
-      <ul>
-        <li>Haldi</li>
-        <li>Mehandi & Sangeet</li>
-        <li>Lighting</li>
-        <li>Kobbari Bondalu</li>
-        <li>Pelli Buttalu</li>
-      </ul>
-    </div>
+      <!-- 4. Event Stalls & Welcome -->
+      <div class="service-card">
+        <div class="service-card-top">
+          <div class="service-icon-box">🌸</div>
+          <div class="service-title-wrap">
+            <h3>Royal Stalls & Welcome</h3>
+            <span>ఈవెంట్ స్టాల్స్ & స్వాగతం</span>
+          </div>
+        </div>
+        <ul>
+          <li>Welcome Girls in Traditional Pattu Sarees</li>
+          <li>Professional Telugu Anchoring & Emcee</li>
+          <li>Rose Petal Blast & Pyro Gun Entries</li>
+          <li>Live Customized Flower Letters & Garlands</li>
+          <li>Guest Return Gifts & Traditional Thamboolam</li>
+          <li>Surprise Gifts & Stage Entertainment</li>
+        </ul>
+        <div class="service-card-footer">
+          <a href="https://wa.me/917780223497?text=I%20want%20to%20inquire%20about%20Welcome%20Girls%20and%20Event%20Stalls." target="_blank" class="btn-royal-outline service-inquire-btn">
+            🌸 ఇన్క్వైరీ చేయండి
+          </a>
+        </div>
+      </div>
 
+      <!-- 5. Royal Food Stalls -->
+      <div class="service-card">
+        <div class="service-card-top">
+          <div class="service-icon-box">🍲</div>
+          <div class="service-title-wrap">
+            <h3>Food Stalls & Feasts</h3>
+            <span>విందు భోజనం & స్టాల్స్</span>
+          </div>
+        </div>
+        <ul>
+          <li>Hot Live Jalebi, Mirchi Bajji & Samosa</li>
+          <li>Shahi Gulab Jamun & Ice-cream Counters</li>
+          <li>Exotic Fresh Fruit Salads & Chocolate Fountain</li>
+          <li>Live Panipuri, Sev Puri & Delhi Chat</li>
+          <li>Cool Welcome Mocktails & Shakes</li>
+          <li>Traditional South Indian & North Indian Delicacies</li>
+        </ul>
+        <div class="service-card-footer">
+          <a href="https://wa.me/917780223497?text=I%20want%20to%20inquire%20about%20Food%20Stalls%20and%20Catering." target="_blank" class="btn-royal-outline service-inquire-btn">
+            🍲 ఇన్క్వైరీ చేయండి
+          </a>
+        </div>
+      </div>
+
+      <!-- 6. Mandapam & Decors -->
+      <div class="service-card">
+        <div class="service-card-top">
+          <div class="service-icon-box">🏛️</div>
+          <div class="service-title-wrap">
+            <h3>Mandapam & Decors</h3>
+            <span>మండపం & డెకరేషన్స్</span>
+          </div>
+        </div>
+        <ul>
+          <li>Grand Royal Temple Architecture Mandapams</li>
+          <li>Vibrant Haldi, Mehendi & Sangeet Backdrops</li>
+          <li>Traditional Lighting, Diyas & LED Setups</li>
+          <li>Custom Hand-carved Kobbari Bondalu</li>
+          <li>Designer Pelli Buttalu & Garlands</li>
+          <li>Modern Flower Arches & Grand Entrance Gateways</li>
+        </ul>
+        <div class="service-card-footer">
+          <a href="https://wa.me/917780223497?text=I%20want%20to%20inquire%20about%20Mandapam%20Decors%20and%20Lighting." target="_blank" class="btn-royal-outline service-inquire-btn">
+            🏛️ ఇన్క్వైరీ చేయండి
+          </a>
+        </div>
+      </div>
+
+    </div>
   </section>
 
+  <!-- 9. INTERACTIVE MUHURTHAM ESTIMATOR & INSTANT BOOKING -->
+  <section class="quote-estimator-section" id="booking">
+    <div class="quote-box">
+      
+      <div class="section-header" style="margin-bottom: 25px;">
+        <div class="shloka-badge">|| ముహూర్తం బుకింగ్ ||</div>
+        <h2>Instant Muhurtham Quote Builder</h2>
+        <p>మీ శుభకార్యం వివరాలు నమోదు చేయండి - వెంటనే వాట్సాప్ లో ఉత్తమ ప్యాకేజీ వివరాలను పొందండి</p>
+      </div>
+
+      <form id="muhurthamQuoteForm">
+        <div class="form-grid">
+          
+          <!-- Name -->
+          <div class="form-group">
+            <label for="clientName">👤 మీ పేరు (Your Name):</label>
+            <input type="text" id="clientName" class="form-control" placeholder="ఉదా: శ్రీనివాస్ రావు" required>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="clientPhone">📞 ఫోన్ నంబర్ (Phone Number):</label>
+            <input type="tel" id="clientPhone" class="form-control" placeholder="ఉదా: 9876543210" required>
+          </div>
+
+          <!-- Event Type -->
+          <div class="form-group">
+            <label for="eventType">🎉 శుభకార్యం రకం (Event Type):</label>
+            <select id="eventType" class="form-control" required>
+              <option value="వివాహం (Traditional Wedding)">వివాహం (Traditional Wedding)</option>
+              <option value="పసుపు & మెహందీ (Haldi / Mehendi)">పసుపు & మెహందీ (Haldi / Mehendi)</option>
+              <option value="శ్రీ సత్యనారాయణ వ్రతం / పూజ">శ్రీ సత్యనారాయణ వ్రతం / పూజ</option>
+              <option value="గృహప్రవేశం (House Warming)">గృహప్రవేశం (House Warming)</option>
+              <option value="సీమంతం / బారసాల (Cradle Ceremony)">సీమంతం / బారసాల (Cradle Ceremony)</option>
+              <option value="రిసెప్షన్ & బర్త్‌డే వేడుక">రిసెప్షన్ & బర్త్‌డే వేడుక</option>
+            </select>
+          </div>
+
+          <!-- Muhurtham Date -->
+          <div class="form-group">
+            <label for="eventDate">📅 ముహూర్తం తేదీ (Muhurtham Date):</label>
+            <input type="date" id="eventDate" class="form-control" required>
+          </div>
+
+          <!-- Expected Guests -->
+          <div class="form-group">
+            <label for="guestCount">👥 అతిథుల సంఖ్య (Guest Count):</label>
+            <select id="guestCount" class="form-control">
+              <option value="100 - 300 మంది">100 - 300 మంది</option>
+              <option value="300 - 600 మంది">300 - 600 మంది</option>
+              <option value="600 - 1000 మంది">600 - 1000 మంది</option>
+              <option value="1000+ మంది (Grand Royal Celebration)">1000+ మంది (Grand Royal Celebration)</option>
+            </select>
+          </div>
+
+          <!-- Venue / Location -->
+          <div class="form-group">
+            <label for="eventVenue">📍 ప్రాంతం / ఊరు (City & Location):</label>
+            <input type="text" id="eventVenue" class="form-control" placeholder="ఉదా: విజయవాడ, గుంటూరు, హైదరాబాద్..." required>
+          </div>
+
+          <!-- Services Needed -->
+          <div class="form-group full-width">
+            <label>✨ మీకు కావలసిన సేవలను ఎంచుకోండి (Select Required Services):</label>
+            
+            <div class="services-checkboxes">
+              <label class="checkbox-label">
+                <input type="checkbox" name="service_option" value="మండపం డెకరేషన్" checked>
+                🏛️ మండపం డెకరేషన్
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="service_option" value="సంపూర్ణ పూజా సామాగ్రి" checked>
+                🪔 సంపూర్ణ పూజా సామాగ్రి
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="service_option" value="బ్రైడల్ మేకప్">
+                💄 బ్రైడల్ మేకప్
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="service_option" value="గ్రూమ్ స్టైలింగ్">
+                👑 గ్రూమ్ స్టైలింగ్
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="service_option" value="మెహందీ & హల్దీ సెటప్">
+                🌿 మెహందీ & హల్దీ సెటప్
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="service_option" value="ఫుడ్ స్టాల్స్ & స్నాక్స్">
+                🍲 ఫుడ్ స్టాల్స్ & స్నాక్స్
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="service_option" value="వెల్కమ్ గర్ల్స్ & యాంకరింగ్">
+                🌸 వెల్కమ్ గర్ల్స్ & యాంకరింగ్
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="service_option" value="లైటింగ్ & ఫ్లవర్ డెకర్">
+                ✨ లైటింగ్ & ఫ్లవర్ డెకర్
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="quote-action-row">
+          <button type="submit" class="btn-royal-gold" style="font-size: 1.05rem; padding: 14px 34px;">
+            📲 Generate WhatsApp Muhurtham Inquiry
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- 10. ROYAL PHOTO GALLERY WITH LIGHTBOX -->
+  <section class="gallery-section" id="gallery">
+    
+    <div class="section-header">
+      <div class="shloka-badge">|| ప్రత్యక్ష చిత్రమాలిక ||</div>
+      <h2>Divine Photo Gallery</h2>
+      <p>మేము నిర్వహించిన అద్భుతమైన శుభకార్యాల ఫోటో జ్ఞాపకాలు</p>
+      <div class="sacred-divider"><span>🪷</span></div>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all">అన్నీ (All)</button>
+      <button class="filter-btn" data-filter="bridal">బ్రైడల్ & గ్రూమ్ (Makeups)</button>
+      <button class="filter-btn" data-filter="decors">మండపం డెకర్స్ (Decors)</button>
+      <button class="filter-btn" data-filter="mehandi">హల్దీ & మెహందీ (Haldi/Mehendi)</button>
+      <button class="filter-btn" data-filter="stalls">ఫుడ్ & స్టాల్స్ (Food & Stalls)</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid">
+
+      <div class="gallery-item" data-category="bridal">
+        <img src="images/bridal.jpg" alt="Bridal Makeup Sree Lalitha Events" loading="lazy">
+        <div class="gallery-item-overlay">
+          <h4>Royal Bridal Makeup</h4>
+          <span>HD Traditional Temple Finish</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="bridal">
+        <img src="images/groom.jpg" alt="Groom Styling Sree Lalitha Events" loading="lazy">
+        <div class="gallery-item-overlay">
+          <h4>Groom Royal Styling</h4>
+          <span>Pelli Peta & Traditional Look</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="decors">
+        <img src="images/decors.jpg" alt="Traditional Wedding Mandapam Decor" loading="lazy">
+        <div class="gallery-item-overlay">
+          <h4>Temple Mandapam Decor</h4>
+          <span>Gold Pillar & Floral Gateway</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="mehandi">
+        <img src="images/mehandi.jpg" alt="Bridal Mehendi Art" loading="lazy">
+        <div class="gallery-item-overlay">
+          <h4>Vedic Bridal Mehendi</h4>
+          <span>Mandala & Traditional Patterns</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="stalls">
+        <img src="images/food.jpg" alt="Traditional Food Stalls Catering" loading="lazy">
+        <div class="gallery-item-overlay">
+          <h4>Royal Feast Stalls</h4>
+          <span>Sweets, Snacks & Mocktails</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="stalls">
+        <img src="images/stalls.jpg" alt="Welcome Girls and Stalls" loading="lazy">
+        <div class="gallery-item-overlay">
+          <h4>Event Entry & Welcome</h4>
+          <span>Traditional Welcome & Anchoring</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lightbox Modal Viewer -->
+  <div class="lightbox-modal" id="galleryLightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox">✕</button>
+      <img src="" alt="Enlarged View" id="lightboxImg">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- 11. TRADITIONAL VALUES & WHY CHOOSE US -->
+  <section class="values-section">
+    
+    <div class="section-header">
+      <div class="shloka-badge">|| మా విశిష్టత ||</div>
+      <h2>Why Sree Lalitha Events?</h2>
+      <p>మీ జీవితంలో అత్యంత మధురమైన వేడుకను పరిపూర్ణం చేయడానికి మేము ఎందుకు ప్రత్యేకం?</p>
+      <div class="sacred-divider"><span>🕉️</span></div>
+    </div>
+
+    <div class="values-grid">
+      
+      <div class="value-card">
+        <div class="value-icon">🪔</div>
+        <h3>100% సాంప్రదాయ నిబద్ధత</h3>
+        <p>శాస్త్రోక్తమైన పద్ధతులు, స్వచ్ఛమైన పూజా ద్రవ్యాలు మరియు పవిత్రమైన వాతావరణం మా ప్రాధాన్యత.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">👑</div>
+        <h3>రాచరికపు డెకరేషన్స్</h3>
+        <p>నూతన ఆలోచనలు, అందమైన పూల అలంకరణలు మరియు ఆకర్షణీయమైన మండపం సెట్టింగులు.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">⏱️</div>
+        <h3>ఖచ్చితమైన సమయపాలన</h3>
+        <p>ముహూర్త సమయానికి అంతా సిద్ధం చేసే అత్యుత్తమ ప్రణాళిక మరియు అంకితభావం గల బృందం.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">💰</div>
+        <h3>సరసమైన ధరలు</h3>
+        <p>అత్యుత్తమ క్వాలిటీతో పాటు మీ బడ్జెట్ కు అనుగుణమైన పారదర్శక ప్యాకేజీలు.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 12. CLIENT BLESSINGS & TESTIMONIALS -->
+  <section class="testimonials-section">
+    
+    <div class="section-header">
+      <div class="shloka-badge">|| శుభాభినందనలు ||</div>
+      <h2>కస్టమర్ల అనుభవాలు (Client Blessings)</h2>
+      <p>మా సేవలను అందుకున్న కుటుంబాల అమూల్యమైన అభిప్రాయాలు</p>
+      <div class="sacred-divider"><span>🌟</span></div>
+    </div>
+
+    <div class="testimonials-grid">
+      
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">
+          "మా అమ్మాయి పెళ్లికి మండపం డెకరేషన్, పూజా సామాగ్రి మరియు బ్రైడల్ మేకప్ అన్నీ శ్రీ లలితా ఈవెంట్స్ వారే చూసుకున్నారు. ప్రతి ఒక్కరూ ఎంతో మెచ్చుకున్నారు. చాలా బాధ్యతగా చేశారు!"
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">ర</div>
+          <div class="author-info">
+            <h4>రామకృష్ణ & సుజాత గారు</h4>
+            <span>వివాహ వేడుక (Wedding), విజయవాడ</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Pooja Samagri was delivered with 100% perfection. All Satyanarayana Swamy vratham items were fresh and complete. Highly recommend Sree Lalitha Events for traditional rituals!"
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">V</div>
+          <div class="author-info">
+            <h4>Venkat & Priya</h4>
+            <span>గృహప్రవేశం (House Warming), గుంటూరు</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">
+          "హల్దీ పూల్ సెటప్, మెహందీ మరియు లైవ్ జిలేబీ స్టాల్ ఈవెంట్‌లో హైలైట్ అయ్యాయి. అతిథులందరూ చాలా ఆనందించారు. ధన్యవాదాలు శ్రీ లలితా ఈవెంట్స్!"
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">క</div>
+          <div class="author-info">
+            <h4>కళ్యాణ్ & హారిక</h4>
+            <span>హల్దీ & మెహందీ వేడుక, హైదరాబాద్</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 13. GRAND TRADITIONAL FOOTER -->
+  <footer class="royal-footer" id="contact">
+    <div class="footer-container">
+      
+      <!-- Col 1: Brand & Bio -->
+      <div class="footer-col">
+        <div class="brand-logo" style="margin-bottom: 15px;">
+          <div class="logo-emblem">🪔</div>
+          <div class="brand-text">
+            <h1 style="font-size: 1.25rem;">Sree Lalitha Events</h1>
+            <span>శ్రీ లలితా ఈవెంట్స్</span>
+          </div>
+        </div>
+        <p>
+          హిందూ సాంప్రదాయ పద్ధతిలో మీ జీవితంలోని అత్యంత పవిత్రమైన ముహూర్తాలను మరియు వేడుకలను దివ్యంగా నిర్వహించే మీ విశ్వసనీయ భాగస్వామి.
+        </p>
+        <div class="footer-social-links">
+          <a href="https://wa.me/917780223497" target="_blank" class="social-circle" title="WhatsApp">💬</a>
+          <a href="https://www.instagram.com/sri_lalitha_events25?igsh=MTRuMG04YXF5em1scg==" target="_blank" class="social-circle" title="Instagram">📸</a>
+          <a href="tel:9398665711" class="social-circle" title="Call Us">📞</a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="footer-col">
+        <h4>త్వరిత లింకులు</h4>
+        <ul class="footer-links">
+          <li><a href="#home">🪷 హోమ్ (Home)</a></li>
+          <li><a href="#showcase">🎡 3D షోకేస్ (Showcase)</a></li>
+          <li><a href="#pooja-special">🪔 పూజా సామాగ్రి (Pooja Special)</a></li>
+          <li><a href="#services">✨ సేవలు (Services)</a></li>
+          <li><a href="#gallery">📸 గ్యాలరీ (Gallery)</a></li>
+          <li><a href="#booking">🌸 ముహూర్తం బుకింగ్ (Booking)</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Services -->
+      <div class="footer-col">
+        <h4>ముఖ్య సేవలు</h4>
+        <ul class="footer-links">
+          <li><a href="#services">💄 Bridal & Groom Makeup</a></li>
+          <li><a href="#services">🏛️ Wedding Mandapam Decor</a></li>
+          <li><a href="#services">🌿 Haldi & Mehendi Themes</a></li>
+          <li><a href="#services">🍲 Royal Food & Live Stalls</a></li>
+          <li><a href="#pooja-special">🥥 Kobbari Bondalu & Pelli Buttalu</a></li>
+          <li><a href="#services">🌸 Welcome Girls & Anchoring</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact & Locations -->
+      <div class="footer-col">
+        <h4>సంప్రదించండి</h4>
+        <p>📞 <strong>ఫోన్ నంబర్లు:</strong></p>
+        <p style="margin-bottom: 5px;"><a href="tel:9398665711" style="color:var(--gold-bright); text-decoration:none;">📞 9398665711</a></p>
+        <p style="margin-bottom: 5px;"><a href="tel:9182700508" style="color:var(--gold-bright); text-decoration:none;">📞 9182700508</a></p>
+        <p style="margin-bottom: 12px;"><a href="tel:7780223497" style="color:var(--gold-bright); text-decoration:none;">📞 7780223497</a></p>
+        
+        <p>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/917780223497" target="_blank" style="color:#25D366; text-decoration:none;">+91 7780223497</a></p>
+        <p>📸 <strong>Instagram:</strong> <a href="https://www.instagram.com/sri_lalitha_events25?igsh=MTRuMG04YXF5em1scg==" target="_blank" style="color:var(--gold-bright); text-decoration:none;">@sri_lalitha_events25</a></p>
+        <p>📍 <strong>సేవా ప్రాంతం:</strong> ఆంధ్రప్రదేశ్ & తెలంగాణ వ్యాప్తంగా (Across AP & TS)</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="blessing">
+        || సర్వే భవన్తు సుఖినః సర్వే సన్తు నిరామయాః | సర్వే భద్రాణి పశ్యంతు మా కశ్చిద్దుఃఖభాగ్‌భవేత్ ||
+      </div>
+      <p>© 2026 Sree Lalitha Events. All Rights Reserved. Designed with Sacred Devotion.</p>
+    </div>
+  </footer>
+
+  <!-- 14. FLOATING SPEED DIAL (Call, WhatsApp, Instagram) -->
+  <div class="floating-actions-container">
+    
+    <!-- Main Floating Trigger Button -->
+    <button class="main-floating-btn" id="mainFloatingBtn" aria-label="Quick Contact Menu">
+      ☎
+    </button>
+
+    <!-- Speed Dial Popover List -->
+    <div class="floating-speed-dial" id="floatingSpeedDial">
+      <a href="#" class="dial-item call open-call-popup-btn">
+        <span>📞 కాల్ చేయండి (Call)</span>
+      </a>
+      <a href="https://wa.me/917780223497?text=Hi%20Sree%20Lalitha%20Events,%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" class="dial-item whatsapp">
+        <span>💬 వాట్సాప్ (WhatsApp)</span>
+      </a>
+      <a href="https://www.instagram.com/sri_lalitha_events25?igsh=MTRuMG04YXF5em1scg==" target="_blank" class="dial-item instagram">
+        <span>📸 ఇన్‌స్టాగ్రామ్ (Instagram)</span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- 15. DIRECT CALL POPUP MODAL -->
+  <div class="call-numbers-popup" id="callPopup">
+    <div class="logo-emblem" style="margin: 0 auto 12px; width: 44px; height: 44px; font-size: 1.3rem;">📞</div>
+    <h3>నేరుగా కాల్ చేయండి</h3>
+    
+    <a href="tel:9398665711" class="call-number-link">
+      <span>📞 9398665711</span>
+    </a>
+    <a href="tel:9182700508" class="call-number-link">
+      <span>📞 9182700508</span>
+    </a>
+    <a href="tel:7780223497" class="call-number-link">
+      <span>📞 7780223497</span>
+    </a>
+
+    <button class="popup-close-btn" id="callPopupClose">మూసివేయండి (Close)</button>
+  </div>
+
+  <!-- Scripts -->
   <script src="carousel.js"></script>
   <script src="main.js"></script>
 
 </body>
 </html>
+
